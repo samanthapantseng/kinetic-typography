@@ -1,29 +1,25 @@
 PFont font;
 PImage bg;
-PImage resizedBG;
 PGraphics pg;
 
 void setup() {
   size(800, 800, P2D);
   font = createFont("BlenderPro-Medium.otf", 600);
-  bg = loadImage("bg.png");
-  resizedBG = bg.get(); // Make a copy of the original background image
-  resizedBG.resize(400, 200); // Resize the copy
-  
+  bg = loadImage("bg.jpeg");
   pg = createGraphics(800, 800, P2D);
   pg.beginDraw();
-  pg.background(255); // Set the background color of the PGraphics canvas
+  //pg.background(255); 
   pg.endDraw();
 }
 
 void draw() {
-  image(resizedBG, 0, 0);
-  
+ 
+    background(bg);
   pg.beginDraw();
-  pg.background(255); // Clear the PGraphics canvas
-  pg.fill(0);
+  pg.fill(255);
   pg.textFont(font);
   pg.textSize(210);
+  
   pg.pushMatrix();
   pg.translate(0, height / 2 - 215);
   pg.textAlign(LEFT, LEFT);
